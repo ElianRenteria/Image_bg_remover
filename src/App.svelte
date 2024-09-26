@@ -12,7 +12,7 @@
         formData.append('image', selectedFile);
 
         try {
-            const response = await fetch('https://elianrenteria.me/api/remove-bg', {
+            const response = await fetch(import.meta.env.VITE_API_URL, {
                 method: 'POST',
                 body: formData
             });
@@ -45,6 +45,7 @@
         link.click();
     };
 </script>
+
 
 <main class="container">
     <h1>Background Remover</h1>

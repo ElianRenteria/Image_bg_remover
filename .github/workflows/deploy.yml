@@ -16,7 +16,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Ensure you use a compatible Node.js version
+          node-version: '16'
+
+      - name: Create .env file
+        run: echo "VITE_API_URL=${{ secrets.URL }}" > .env
 
       - name: Install dependencies
         run: npm install
@@ -28,5 +31,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./dist  # Assuming your build output is in 'public'
-
+          publish_dir: ./dist  # Assuming your build output is in 'dist'
